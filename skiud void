@@ -1,0 +1,14 @@
+Workspace.CurrentCamera.CameraSubject = Target.Character.Humanoid
+    local originalCFrame = Game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame
+    local Attaching = true
+    Game:GetService('Players').LocalPlayer.Character:FindFirstChild('Animate'):Destroy()
+    local Clone = Game:GetService('Players').LocalPlayer.Character.Humanoid:Clone()
+    Clone.Parent = Game:GetService('Players').LocalPlayer.Character
+    Clone.BreakJointsOnDeath = false
+    Game:GetService('Players').LocalPlayer.Character.Humanoid:Destroy()
+    for y, z in pairs(Game:GetService('Players').LocalPlayer.Backpack:GetDescendants()) do
+        if z:IsA('Tool') and z:FindFirstChild('Handle') then
+            z.Parent = Game:GetService('Players').LocalPlayer.Character
+            firetouchinterest(Target.Character.HumanoidRootPart, z.Handle, 0)
+        end
+    end
